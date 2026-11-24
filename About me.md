@@ -15,9 +15,4 @@
   <li>A beginner level in programming</li>
 <li>Educated in various subjects and programming topics</li>
 </OL>
-  body{
-background-image: url("https://tse2.mm.bing.net/th/id/OIP.ueVIMvfRJHvxWGtGqOTdRQHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-min-height: 105vh;
+  
