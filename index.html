@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark Vincent Ting | Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --pink: #f4b8c8;
+    --rose: #d96f91;
+    --dark-rose: #a84468;
+    --blush: #fff1f5;
+    --cream: #fffaf8;
+    --ink: #44343b;
+    --muted: #806d75;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255,250,248,.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #f4dce4;
+}
+
+nav {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    color: var(--dark-rose);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.nav-links a:hover {
+    color: var(--rose);
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 78vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 90px 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fff1f5, #fffaf8);
+}
+
+.eyebrow {
+    color: var(--dark-rose);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    font-size: clamp(40px, 7vw, 85px);
+    margin: 15px 0;
+}
+
+h1 span {
+    color: var(--rose);
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto auto 25px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    background: var(--dark-rose);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.button:hover {
+    background: #913958;
+    transform: translateY(-3px);
+}
+
+.pill {
+    display: inline-block;
+    background: var(--blush);
+    color: var(--dark-rose);
+    border: 1px solid #f5d1dc;
+    padding: 8px 15px;
+    border-radius: 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+/* CHERRY BLOSSOM DECORATIONS */
+
+.petal {
+    position: absolute;
+    color: #e99bb2;
+    opacity: .5;
+    font-size: 35px;
+    animation: float 7s ease-in-out infinite;
+}
+
+.p1 { top: 17%; left: 8%; }
+.p2 { top: 28%; right: 11%; }
+.p3 { bottom: 15%; left: 17%; }
+.p4 { bottom: 20%; right: 15%; }
+
+@keyframes float {
+    50% {
+        transform: translateY(-18px) rotate(18deg);
+    }
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 78px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    margin: 8px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 28px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #f4dce4;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 14px 40px rgba(168,68,104,.12);
+}
+
+.card h3 {
+    color: var(--dark-rose);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.info-line {
+    padding: 9px 0;
+    border-bottom: 1px solid #f6e6eb;
+}
+
+.info-line strong {
+    color: var(--dark-rose);
+}
+
+/* INTERESTS AND FUN FACTS */
+
+.soft-section {
+    background: linear-gradient(135deg, #fff0f5, #fff9f7);
+}
+
+.interest-grid,
+.facts-grid,
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.mini-card {
+    background: white;
+    border: 1px solid #f4dce4;
+    border-radius: 18px;
+    padding: 23px;
+    box-shadow: 0 14px 40px rgba(168,68,104,.10);
+    transition: .3s;
+}
+
+.mini-card:hover {
+    transform: translateY(-5px);
+}
+
+.emoji {
+    font-size: 30px;
+}
+
+.mini-card h3 {
+    color: var(--dark-rose);
+    margin: 9px 0 5px;
+    font-size: 21px;
+}
+
+.mini-card p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* PROJECTS */
+
+.project-card {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card small {
+    margin-top: auto;
+    color: var(--dark-rose);
+    font-weight: bold;
+}
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+}
+
+.contact .card {
+    max-width: 720px;
+    margin: auto;
+}
+
+.tiny-flower {
+    color: var(--rose);
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 760px) {
+    .nav-links {
+        gap: 12px;
+        font-size: 13px;
+    }
+
+    .about-grid,
+    .interest-grid,
+    .facts-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 440px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+<nav class="container">
+    <a class="brand" href="#home">
+        ✿ MARK VINCENT TING
+    </a>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#interests">Interests</a>
+        <a href="#facts">Fun Facts</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+</header>
+
+<!-- HOME -->
+<main>
+
+<section class="hero" id="home">
+
+    <span class="petal p1">✿</span>
+    <span class="petal p2">❀</span>
+    <span class="petal p3">✧</span>
+    <span class="petal p4">✿</span>
+
+    <div class="container">
+
+        <div class="eyebrow">
+            Welcome to my little corner of the internet
+        </div>
+
+        <h1>
+            Hi, I'm <span>Mark Vincent Ting</span>
+        </h1>
+
+        <p>
+            An aspiring IT professional and Bachelor of Science
+            in Information Technology student at National University
+            – Clark. I'm learning, creating, and growing one project
+            at a time.
+        </p>
+
+        <a href="#about" class="button">
+            Get to know me
+        </a>
+
+        <div style="margin-top:25px">
+            <span class="pill">BS Information Technology</span>
+            <span class="pill">NU Clark</span>
+            <span class="pill">Future IT Professional</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT ME -->
+<section id="about">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">A little introduction</div>
+        <h2>About Me <span class="tiny-flower">✿</span></h2>
+        <p>Every great journey starts with curiosity.</p>
+    </div>
+
+    <div class="about-grid">
+
+        <article class="card">
+            <h3>Hello there!</h3>
+
+            <p>
+                I'm <strong>Mark Vincent Ting</strong>, currently
+                taking up <strong>BS Information Technology at
+                National University – Clark</strong>.
+            </p>
+
+            <br>
+
+            <p>
+                I'm interested in how technology works and how it
+                can be used to solve everyday problems. As a student,
+                I'm continuously building my skills, exploring new
+                ideas, and discovering which areas of IT inspire me most.
+            </p>
+
+            <br>
+
+            <p>
+                This portfolio is a place to introduce myself,
+                share what I enjoy, and showcase the projects
+                and skills I develop along the way.
+            </p>
+        </article>
+
+        <aside class="card">
+            <h3>Quick Profile</h3>
+
+            <div class="info-line">
+                <strong>Name:</strong> Mark Vincent Ting
+            </div>
+
+            <div class="info-line">
+                <strong>Program:</strong> BS Information Technology
+            </div>
+
+            <div class="info-line">
+                <strong>School:</strong> National University – Clark
+            </div>
+
+            <div class="info-line">
+                <strong>Role:</strong> IT Student
+            </div>
+
+            <div class="info-line">
+                <strong>Goal:</strong> Keep learning and create useful technology
+            </div>
+        </aside>
+
+    </div>
+</div>
+</section>
+
+<!-- INTERESTS -->
+<section class="soft-section" id="interests">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">Things I enjoy</div>
+        <h2>My Interests</h2>
+        <p>A few things that make me who I am.</p>
+    </div>
+
+    <div class="interest-grid">
+
+        <article class="mini-card">
+            <div class="emoji">💻</div>
+            <h3>Technology</h3>
+            <p>
+                Exploring computers, digital tools,
+                and the latest tech ideas.
+            </p>
+        </article>
+
+        <article class="mini-card">
+            <div class="emoji">🎮</div>
+            <h3>Gaming</h3>
+            <p>
+                Enjoying games, learning from them,
+                and appreciating creative game design.
+            </p>
+        </article>
+
+        <article class="mini-card">
+            <div class="emoji">🎧</div>
+            <h3>Music</h3>
+            <p>
+                Listening to music while relaxing,
+                studying, or working on something new.
+            </p>
+        </article>
+
+    </div>
+</div>
+</section>
+
+<!-- FUN FACTS -->
+<section id="facts">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">Beyond the classroom</div>
+        <h2>Fun Facts About Me</h2>
+        <p>Small details that add a little personality.</p>
+    </div>
+
+    <div class="facts-grid">
+
+        <article class="mini-card">
+            <div class="emoji">🌸</div>
+            <h3>Cherry Blossom Fan</h3>
+            <p>
+                I like the calm, soft, and refreshing
+                look of cherry blossoms.
+            </p>
+        </article>
+
+        <article class="mini-card">
+            <div class="emoji">🌱</div>
+            <h3>Always Learning</h3>
+            <p>
+                I believe every new skill starts
+                with being willing to try.
+            </p>
+        </article>
+
+        <article class="mini-card">
+            <div class="emoji">✨</div>
+            <h3>Work in Progress</h3>
+            <p>
+                I'm still discovering my strengths
+                and the IT path I want to pursue.
+            </p>
+        </article>
+
+    </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section class="soft-section" id="projects">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">What I'm building</div>
+        <h2>My Projects</h2>
+        <p>
+            A collection of my school activities
+            and personal projects.
+        </p>
+    </div>
+
+    <div class="project-grid">
+
+        <article class="mini-card project-card">
+            <div class="emoji">🌐</div>
+            <h3>Personal Portfolio</h3>
+            <p>
+                A website introducing me, my interests,
+                and my journey as an IT student.
+            </p>
+            <small>HTML · CSS</small>
+        </article>
+
+        <article class="mini-card project-card">
+            <div class="emoji">🧩</div>
+            <h3>Coming Soon</h3>
+            <p>
+                Add a description of an assignment
+                or project you're proud of.
+            </p>
+            <small>Your technologies here</small>
+        </article>
+
+        <article class="mini-card project-card">
+            <div class="emoji">🚀</div>
+            <h3>Future Project</h3>
+            <p>
+                There's always something new to
+                learn, build, and improve.
+            </p>
+            <small>More projects on the way</small>
+        </article>
+
+    </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">Let's connect</div>
+        <h2>Contact Me</h2>
+        <p>Have a project idea or want to say hello?</p>
+    </div>
+
+    <div class="card">
+
+        <p>
+            I'd be happy to connect and learn
+            with other people in tech.
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Email:</strong> your-email@example.com
+        </p>
+
+        <br>
+
+        <a href="mailto:your-email@example.com" class="button">
+            Send me an email
+        </a>
+
+    </div>
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    Made with <span class="tiny-flower">✿</span>
+    by Mark Vincent Ting · ©
+    <span id="year"></span>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
