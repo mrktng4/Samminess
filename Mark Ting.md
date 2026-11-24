@@ -11,8 +11,8 @@
   
 <h3> <B>ABOUT ME</B></h3>
 <ul>
-  <li>An aspiring student from NU Clark</li>
-  <li>A beginner level in programming</li>
+  <li>An aspiring <b>student</b> from <B>NU Clark</B></li>
+  <li>A <b>beginner level in programming</li>
 <li>Educated in various subjects and programming topics</li>
 </OL>
   
