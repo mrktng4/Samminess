@@ -53,7 +53,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(255,250,248,.92);
+    background: rgba(255,250,248,.95);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid #f4dce4;
 }
@@ -89,7 +89,7 @@ nav {
 /* HERO SECTION */
 
 .hero {
-    min-height: 78vh;
+    min-height: 85vh;
     display: grid;
     place-items: center;
     text-align: center;
@@ -97,12 +97,11 @@ nav {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-
     background: linear-gradient(
         180deg,
-        #fff0f4 0%,
+        #fff0f4,
         #ffe1e8 65%,
-        #f6cbd1 100%
+        #f6cbd1
     );
 }
 
@@ -148,7 +147,6 @@ h1 span {
 .button:hover {
     background: #913958;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(168,68,104,.3);
 }
 
 .pill {
@@ -162,24 +160,20 @@ h1 span {
     font-size: 14px;
 }
 
-/* JAPANESE MOUNT FUJI LANDSCAPE */
-
-/* Pink sunset */
+/* MOUNT FUJI SUNSET */
 
 .hero::before {
     content: "";
     position: absolute;
     z-index: -2;
-    width: clamp(230px, 38vw, 390px);
-    aspect-ratio: 1;
+    width: 390px;
+    height: 390px;
     border-radius: 50%;
     background: #ffcbd2;
     top: 8%;
     right: 13%;
     opacity: .9;
 }
-
-/* Mount Fuji */
 
 .fuji {
     position: absolute;
@@ -190,23 +184,12 @@ h1 span {
     bottom: 18%;
     transform: translateX(-50%);
     background: #f3dddd;
-
     clip-path: polygon(
-        0 100%,
-        16% 75%,
-        31% 58%,
-        43% 34%,
-        50% 20%,
-        57% 34%,
-        69% 58%,
-        84% 75%,
-        100% 100%
+        0 100%, 16% 75%, 31% 58%,
+        43% 34%, 50% 20%, 57% 34%,
+        69% 58%, 84% 75%, 100% 100%
     );
-
-    opacity: .98;
 }
-
-/* Snow on Mount Fuji */
 
 .fuji::after {
     content: "";
@@ -217,24 +200,13 @@ h1 span {
     left: 50%;
     transform: translateX(-50%);
     background: #fffdfb;
-
     clip-path: polygon(
-        0 100%,
-        18% 66%,
-        32% 75%,
-        50% 0,
-        68% 75%,
-        82% 66%,
-        100% 100%,
-        72% 82%,
-        62% 100%,
-        50% 83%,
-        38% 100%,
-        27% 82%
+        0 100%, 18% 66%, 32% 75%,
+        50% 0, 68% 75%, 82% 66%,
+        100% 100%, 72% 82%, 62% 100%,
+        50% 83%, 38% 100%, 27% 82%
     );
 }
-
-/* Layered Japanese hills */
 
 .hero::after {
     content: "";
@@ -244,82 +216,48 @@ h1 span {
     bottom: 0;
     width: 110%;
     height: 34%;
-
     background:
         radial-gradient(
             95% 95% at 20% 100%,
-            #e7c0c1 0 58%,
-            transparent 59%
+            #e7c0c1 0 58%, transparent 59%
         ),
         radial-gradient(
             85% 100% at 78% 100%,
-            #d9a6a8 0 58%,
-            transparent 59%
+            #d9a6a8 0 58%, transparent 59%
         ),
         linear-gradient(
             to bottom,
-            transparent 0 38%,
+            transparent 38%,
             #efd0d0 39% 66%,
-            #d9a6a8 67% 100%
+            #d9a6a8 67%
         );
-
     clip-path: polygon(
-        0 22%,
-        18% 8%,
-        36% 16%,
-        53% 0,
-        72% 17%,
-        88% 12%,
-        100% 24%,
-        100% 100%,
-        0 100%
+        0 22%, 18% 8%, 36% 16%,
+        53% 0, 72% 17%, 88% 12%,
+        100% 24%, 100% 100%, 0 100%
     );
-
-    opacity: .88;
 }
 
-/* HERO CONTENT */
+/* CHERRY BLOSSOMS */
 
 .hero .container {
     position: relative;
-    z-index: 2;
+    z-index: 4;
 }
-
-/* CHERRY BLOSSOM DECORATIONS */
 
 .petal {
     position: absolute;
     z-index: 3;
     color: #dc7294;
-    opacity: .5;
+    opacity: .7;
     font-size: 35px;
-    text-shadow: 0 3px 12px rgba(217,111,145,.2);
     animation: float 7s ease-in-out infinite;
 }
 
-.p1 {
-    top: 17%;
-    left: 8%;
-    font-size: 45px;
-}
-
-.p2 {
-    top: 28%;
-    right: 11%;
-    font-size: 38px;
-}
-
-.p3 {
-    bottom: 15%;
-    left: 17%;
-    font-size: 30px;
-}
-
-.p4 {
-    bottom: 20%;
-    right: 15%;
-    font-size: 48px;
-}
+.p1 { top: 17%; left: 8%; }
+.p2 { top: 28%; right: 11%; }
+.p3 { bottom: 15%; left: 17%; }
+.p4 { bottom: 20%; right: 15%; }
 
 @keyframes float {
     50% {
@@ -327,52 +265,198 @@ h1 span {
     }
 }
 
-/* FALLING CHERRY BLOSSOM PETALS */
-
-@keyframes falling {
-    0% {
-        transform: translateY(-30px) rotate(0deg);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: .8;
-    }
-
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
+/* FALLING PETALS */
 
 .falling-petal {
     position: absolute;
     top: -25px;
-    z-index: 1;
+    z-index: 2;
     color: #e99bb2;
     font-size: 23px;
     pointer-events: none;
     animation: falling 12s linear infinite;
 }
 
-.petal-a {
-    left: 12%;
-    animation-delay: 0s;
+.petal-a { left: 12%; }
+.petal-b { left: 35%; animation-delay: 3s; }
+.petal-c { left: 65%; animation-delay: 6s; }
+.petal-d { left: 85%; animation-delay: 2s; }
+
+@keyframes falling {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: .8; }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
-.petal-b {
-    left: 35%;
-    animation-delay: 3s;
+/* HELLO KITTY STYLE CHARACTER */
+
+.kitty-sticker {
+    position: absolute;
+    z-index: 5;
+    right: 7%;
+    bottom: 12%;
+    width: 126px;
+    height: 112px;
+    transform: rotate(7deg);
+    filter: drop-shadow(0 8px 10px rgba(168,68,104,.14));
+    pointer-events: none;
 }
 
-.petal-c {
-    left: 65%;
-    animation-delay: 6s;
+.kitty-head {
+    position: absolute;
+    left: 18px;
+    bottom: 0;
+    width: 91px;
+    height: 76px;
+    background: #fffdfb;
+    border: 2px solid #e8cbd2;
+    border-radius: 48% 48% 44% 44%;
 }
 
-.petal-d {
-    left: 85%;
-    animation-delay: 2s;
+.kitty-head::before,
+.kitty-head::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    width: 31px;
+    height: 35px;
+    background: #fffdfb;
+    border: 2px solid #e8cbd2;
+    z-index: -1;
+}
+
+.kitty-head::before {
+    left: 1px;
+    transform: rotate(-27deg);
+    border-radius: 5px 23px 3px 5px;
+}
+
+.kitty-head::after {
+    right: 1px;
+    transform: rotate(27deg);
+    border-radius: 23px 5px 5px 3px;
+}
+
+.kitty-eye {
+    position: absolute;
+    top: 31px;
+    width: 6px;
+    height: 9px;
+    border-radius: 50%;
+    background: #44343b;
+}
+
+.kitty-eye.left { left: 23px; }
+.kitty-eye.right { right: 23px; }
+
+.kitty-nose {
+    position: absolute;
+    top: 42px;
+    left: 42px;
+    width: 7px;
+    height: 5px;
+    border-radius: 50%;
+    background: #e6a33e;
+}
+
+.kitty-whiskers {
+    position: absolute;
+    top: 42px;
+    width: 22px;
+    height: 1px;
+    background: #806d75;
+}
+
+.kitty-whiskers.left {
+    left: -13px;
+    box-shadow: 0 7px #806d75, 0 -7px #806d75;
+    transform: rotate(8deg);
+}
+
+.kitty-whiskers.right {
+    right: -13px;
+    box-shadow: 0 7px #806d75, 0 -7px #806d75;
+    transform: rotate(-8deg);
+}
+
+/* SIGNATURE RED BOW */
+
+.kitty-bow {
+    position: absolute;
+    z-index: 3;
+    top: 4px;
+    right: 1px;
+    width: 37px;
+    height: 27px;
+}
+
+.kitty-bow::before,
+.kitty-bow::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    width: 18px;
+    height: 22px;
+    background: #e94f78;
+    border: 1px solid #c93c65;
+}
+
+.kitty-bow::before {
+    left: 0;
+    border-radius: 90% 15% 75% 20%;
+    transform: rotate(22deg);
+}
+
+.kitty-bow::after {
+    right: 0;
+    border-radius: 15% 90% 20% 75%;
+    transform: rotate(-22deg);
+}
+
+.kitty-bow span {
+    position: absolute;
+    z-index: 2;
+    top: 9px;
+    left: 14px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffb3c6;
+    border: 1px solid #c93c65;
+}
+
+/* CUTE HELLO KITTY BOWS */
+
+.kitty-note {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 13px;
+    border: 1px dashed #e7a6b8;
+    border-radius: 20px;
+    color: #a84468;
+    background: rgba(255,241,245,.9);
+    font-size: 12px;
+    letter-spacing: .5px;
+}
+
+.mini-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.mini-card::after {
+    content: "🎀";
+    position: absolute;
+    top: 10px;
+    right: 13px;
+    font-size: 19px;
+    opacity: .75;
 }
 
 /* GENERAL SECTIONS */
@@ -390,7 +474,6 @@ section {
     font-size: 42px;
     margin: 8px 0;
     color: #a84468;
-    letter-spacing: .5px;
 }
 
 .section-heading h2::after {
@@ -403,13 +486,13 @@ section {
     color: var(--muted);
 }
 
+/* ABOUT */
+
 .about-grid {
     display: grid;
     grid-template-columns: 1.1fr .9fr;
     gap: 28px;
 }
-
-/* ABOUT CARDS */
 
 .card {
     background: white;
@@ -417,7 +500,7 @@ section {
     border-radius: 22px;
     padding: 28px;
     box-shadow: 0 12px 35px rgba(168,68,104,.10);
-    transition: all .35s ease;
+    transition: .35s;
 }
 
 .card:hover {
@@ -444,16 +527,8 @@ section {
 
 .soft-section {
     background:
-        radial-gradient(
-            circle at 10% 15%,
-            #ffe0e9 0,
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 90% 85%,
-            #ffe5e9 0,
-            transparent 25%
-        ),
+        radial-gradient(circle at 10% 15%, #ffe0e9 0, transparent 25%),
+        radial-gradient(circle at 90% 85%, #ffe5e9 0, transparent 25%),
         linear-gradient(135deg, #fff0f5, #fff9f7);
 }
 
@@ -471,7 +546,7 @@ section {
     border-radius: 18px;
     padding: 23px;
     box-shadow: 0 12px 35px rgba(168,68,104,.10);
-    transition: all .35s ease;
+    transition: .35s;
 }
 
 .mini-card:hover {
@@ -538,7 +613,6 @@ footer {
 /* RESPONSIVE DESIGN */
 
 @media (max-width: 760px) {
-
     .nav-links {
         gap: 12px;
         font-size: 13px;
@@ -557,6 +631,7 @@ footer {
 
     .hero::before {
         width: 230px;
+        height: 230px;
         right: -40px;
         top: 12%;
     }
@@ -570,10 +645,18 @@ footer {
     .hero::after {
         height: 28%;
     }
+
+    .kitty-sticker {
+        width: 88px;
+        height: 82px;
+        right: 3%;
+        bottom: 5%;
+        transform: scale(.72) rotate(7deg);
+        transform-origin: bottom right;
+    }
 }
 
 @media (max-width: 440px) {
-
     nav {
         flex-direction: column;
         align-items: flex-start;
@@ -589,20 +672,12 @@ footer {
     }
 }
 
-/* REDUCED MOTION ACCESSIBILITY */
-
 @media (prefers-reduced-motion: reduce) {
-
     .falling-petal,
     .petal {
         animation: none;
     }
-
-    html {
-        scroll-behavior: auto;
-    }
 }
-
 </style>
 </head>
 
@@ -614,7 +689,7 @@ footer {
 <nav class="container">
 
     <a class="brand" href="#home">
-        ✿ MARK VINCENT TING
+        🎀 MARK VINCENT TING
     </a>
 
     <div class="nav-links">
@@ -634,23 +709,47 @@ footer {
 
 <section class="hero" id="home">
 
-    <!-- Original flower decorations -->
+    <!-- CHERRY BLOSSOMS -->
 
     <span class="petal p1">✿</span>
     <span class="petal p2">❀</span>
     <span class="petal p3">✧</span>
     <span class="petal p4">✿</span>
 
-    <!-- Mount Fuji -->
+    <!-- MOUNT FUJI -->
 
     <div class="fuji" aria-hidden="true"></div>
 
-    <!-- Falling petals -->
+    <!-- FALLING PETALS -->
 
-    <span class="falling-petal petal-a" aria-hidden="true">✿</span>
-    <span class="falling-petal petal-b" aria-hidden="true">❀</span>
-    <span class="falling-petal petal-c" aria-hidden="true">✿</span>
-    <span class="falling-petal petal-d" aria-hidden="true">❀</span>
+    <span class="falling-petal petal-a">✿</span>
+    <span class="falling-petal petal-b">❀</span>
+    <span class="falling-petal petal-c">✿</span>
+    <span class="falling-petal petal-d">❀</span>
+
+    <!-- HELLO KITTY FACE -->
+
+    <div class="kitty-sticker" aria-hidden="true">
+
+        <div class="kitty-head">
+
+            <span class="kitty-eye left"></span>
+            <span class="kitty-eye right"></span>
+
+            <span class="kitty-nose"></span>
+
+            <span class="kitty-whiskers left"></span>
+            <span class="kitty-whiskers right"></span>
+
+        </div>
+
+        <div class="kitty-bow">
+            <span></span>
+        </div>
+
+    </div>
+
+    <!-- INTRODUCTION -->
 
     <div class="container">
 
@@ -672,9 +771,15 @@ footer {
         </a>
 
         <div style="margin-top:25px">
+
             <span class="pill">BS Information Technology</span>
             <span class="pill">NU Clark</span>
             <span class="pill">Future IT Professional</span>
+
+        </div>
+
+        <div class="kitty-note">
+            ♡ made with a little sakura magic ♡
         </div>
 
     </div>
@@ -688,7 +793,7 @@ footer {
 
     <div class="section-heading">
         <div class="eyebrow">A little introduction</div>
-        <h2>About Me <span class="tiny-flower">✿</span></h2>
+        <h2>About Me</h2>
         <p>Every great journey starts with curiosity.</p>
     </div>
 
@@ -748,7 +853,6 @@ footer {
         </aside>
 
     </div>
-
 </div>
 </section>
 
@@ -803,7 +907,6 @@ footer {
         </article>
 
     </div>
-
 </div>
 </section>
 
@@ -822,7 +925,7 @@ footer {
 
         <article class="mini-card">
 
-            <div class="emoji"></div>
+            <div class="emoji">🎀</div>
 
             <h3>Organized</h3>
 
@@ -834,7 +937,7 @@ footer {
 
         <article class="mini-card">
 
-            <div class="emoji"></div>
+            <div class="emoji">💗</div>
 
             <h3>Self-Concious</h3>
 
@@ -846,7 +949,7 @@ footer {
 
         <article class="mini-card">
 
-            <div class="emoji"></div>
+            <div class="emoji">🌸</div>
 
             <h3>Calm</h3>
 
@@ -857,7 +960,6 @@ footer {
         </article>
 
     </div>
-
 </div>
 </section>
 
@@ -881,7 +983,7 @@ footer {
 
         <article class="mini-card project-card">
 
-            <div class="emoji"></div>
+            <div class="emoji">💻</div>
 
             <h3>Personal Portfolio</h3>
 
@@ -895,7 +997,7 @@ footer {
 
         <article class="mini-card project-card">
 
-            <div class="emoji"></div>
+            <div class="emoji">🎀</div>
 
             <h3>NU CLARK</h3>
 
@@ -909,7 +1011,7 @@ footer {
 
         <article class="mini-card project-card">
 
-            <div class="emoji"></div>
+            <div class="emoji">🌷</div>
 
             <h3>Future Project</h3>
 
@@ -923,7 +1025,6 @@ footer {
         </article>
 
     </div>
-
 </div>
 </section>
 
@@ -958,7 +1059,6 @@ footer {
         </a>
 
     </div>
-
 </div>
 </section>
 
@@ -968,13 +1068,1094 @@ footer {
 
 <footer>
 
-    Made with <span class="tiny-flower">✿</span>
+    Made with 🎀 and <span class="tiny-flower">✿</span>
     by Mark Vincent Ting · ©
     <span id="year"></span>
 
 </footer>
 
-<!-- JAVASCRIPT -->
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark Vincent Ting | Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --pink: #f4b8c8;
+    --rose: #d96f91;
+    --dark-rose: #a84468;
+    --blush: #fff1f5;
+    --cream: #fffaf8;
+    --ink: #44343b;
+    --muted: #806d75;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255,250,248,.95);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #f4dce4;
+}
+
+nav {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    color: var(--dark-rose);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--rose);
+}
+
+/* HERO SECTION */
+
+.hero {
+    min-height: 85vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 90px 0;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(
+        180deg,
+        #fff0f4,
+        #ffe1e8 65%,
+        #f6cbd1
+    );
+}
+
+.eyebrow {
+    color: var(--dark-rose);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    font-size: clamp(40px, 7vw, 85px);
+    margin: 15px 0;
+}
+
+h1 span {
+    color: var(--rose);
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto auto 25px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    background: var(--dark-rose);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: .3s;
+    box-shadow: 0 7px 18px rgba(168,68,104,.2);
+}
+
+.button:hover {
+    background: #913958;
+    transform: translateY(-3px);
+}
+
+.pill {
+    display: inline-block;
+    background: var(--blush);
+    color: var(--dark-rose);
+    border: 1px solid #f5d1dc;
+    padding: 8px 15px;
+    border-radius: 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+/* MOUNT FUJI SUNSET */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    width: 390px;
+    height: 390px;
+    border-radius: 50%;
+    background: #ffcbd2;
+    top: 8%;
+    right: 13%;
+    opacity: .9;
+}
+
+.fuji {
+    position: absolute;
+    z-index: -1;
+    width: min(72vw, 760px);
+    height: 44%;
+    left: 50%;
+    bottom: 18%;
+    transform: translateX(-50%);
+    background: #f3dddd;
+    clip-path: polygon(
+        0 100%, 16% 75%, 31% 58%,
+        43% 34%, 50% 20%, 57% 34%,
+        69% 58%, 84% 75%, 100% 100%
+    );
+}
+
+.fuji::after {
+    content: "";
+    position: absolute;
+    width: 27%;
+    height: 31%;
+    top: 19%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fffdfb;
+    clip-path: polygon(
+        0 100%, 18% 66%, 32% 75%,
+        50% 0, 68% 75%, 82% 66%,
+        100% 100%, 72% 82%, 62% 100%,
+        50% 83%, 38% 100%, 27% 82%
+    );
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -5%;
+    bottom: 0;
+    width: 110%;
+    height: 34%;
+    background:
+        radial-gradient(
+            95% 95% at 20% 100%,
+            #e7c0c1 0 58%, transparent 59%
+        ),
+        radial-gradient(
+            85% 100% at 78% 100%,
+            #d9a6a8 0 58%, transparent 59%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 38%,
+            #efd0d0 39% 66%,
+            #d9a6a8 67%
+        );
+    clip-path: polygon(
+        0 22%, 18% 8%, 36% 16%,
+        53% 0, 72% 17%, 88% 12%,
+        100% 24%, 100% 100%, 0 100%
+    );
+}
+
+/* CHERRY BLOSSOMS */
+
+.hero .container {
+    position: relative;
+    z-index: 4;
+}
+
+.petal {
+    position: absolute;
+    z-index: 3;
+    color: #dc7294;
+    opacity: .7;
+    font-size: 35px;
+    animation: float 7s ease-in-out infinite;
+}
+
+.p1 { top: 17%; left: 8%; }
+.p2 { top: 28%; right: 11%; }
+.p3 { bottom: 15%; left: 17%; }
+.p4 { bottom: 20%; right: 15%; }
+
+@keyframes float {
+    50% {
+        transform: translateY(-18px) rotate(18deg);
+    }
+}
+
+/* FALLING PETALS */
+
+.falling-petal {
+    position: absolute;
+    top: -25px;
+    z-index: 2;
+    color: #e99bb2;
+    font-size: 23px;
+    pointer-events: none;
+    animation: falling 12s linear infinite;
+}
+
+.petal-a { left: 12%; }
+.petal-b { left: 35%; animation-delay: 3s; }
+.petal-c { left: 65%; animation-delay: 6s; }
+.petal-d { left: 85%; animation-delay: 2s; }
+
+@keyframes falling {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: .8; }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* HELLO KITTY STYLE CHARACTER */
+
+.kitty-sticker {
+    position: absolute;
+    z-index: 5;
+    right: 7%;
+    bottom: 12%;
+    width: 126px;
+    height: 112px;
+    transform: rotate(7deg);
+    filter: drop-shadow(0 8px 10px rgba(168,68,104,.14));
+    pointer-events: none;
+}
+
+.kitty-head {
+    position: absolute;
+    left: 18px;
+    bottom: 0;
+    width: 91px;
+    height: 76px;
+    background: #fffdfb;
+    border: 2px solid #e8cbd2;
+    border-radius: 48% 48% 44% 44%;
+}
+
+.kitty-head::before,
+.kitty-head::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    width: 31px;
+    height: 35px;
+    background: #fffdfb;
+    border: 2px solid #e8cbd2;
+    z-index: -1;
+}
+
+.kitty-head::before {
+    left: 1px;
+    transform: rotate(-27deg);
+    border-radius: 5px 23px 3px 5px;
+}
+
+.kitty-head::after {
+    right: 1px;
+    transform: rotate(27deg);
+    border-radius: 23px 5px 5px 3px;
+}
+
+.kitty-eye {
+    position: absolute;
+    top: 31px;
+    width: 6px;
+    height: 9px;
+    border-radius: 50%;
+    background: #44343b;
+}
+
+.kitty-eye.left { left: 23px; }
+.kitty-eye.right { right: 23px; }
+
+.kitty-nose {
+    position: absolute;
+    top: 42px;
+    left: 42px;
+    width: 7px;
+    height: 5px;
+    border-radius: 50%;
+    background: #e6a33e;
+}
+
+.kitty-whiskers {
+    position: absolute;
+    top: 42px;
+    width: 22px;
+    height: 1px;
+    background: #806d75;
+}
+
+.kitty-whiskers.left {
+    left: -13px;
+    box-shadow: 0 7px #806d75, 0 -7px #806d75;
+    transform: rotate(8deg);
+}
+
+.kitty-whiskers.right {
+    right: -13px;
+    box-shadow: 0 7px #806d75, 0 -7px #806d75;
+    transform: rotate(-8deg);
+}
+
+/* SIGNATURE RED BOW */
+
+.kitty-bow {
+    position: absolute;
+    z-index: 3;
+    top: 4px;
+    right: 1px;
+    width: 37px;
+    height: 27px;
+}
+
+.kitty-bow::before,
+.kitty-bow::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    width: 18px;
+    height: 22px;
+    background: #e94f78;
+    border: 1px solid #c93c65;
+}
+
+.kitty-bow::before {
+    left: 0;
+    border-radius: 90% 15% 75% 20%;
+    transform: rotate(22deg);
+}
+
+.kitty-bow::after {
+    right: 0;
+    border-radius: 15% 90% 20% 75%;
+    transform: rotate(-22deg);
+}
+
+.kitty-bow span {
+    position: absolute;
+    z-index: 2;
+    top: 9px;
+    left: 14px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffb3c6;
+    border: 1px solid #c93c65;
+}
+
+/* CUTE HELLO KITTY BOWS */
+
+.kitty-note {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 13px;
+    border: 1px dashed #e7a6b8;
+    border-radius: 20px;
+    color: #a84468;
+    background: rgba(255,241,245,.9);
+    font-size: 12px;
+    letter-spacing: .5px;
+}
+
+.mini-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.mini-card::after {
+    content: "🎀";
+    position: absolute;
+    top: 10px;
+    right: 13px;
+    font-size: 19px;
+    opacity: .75;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 78px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    margin: 8px 0;
+    color: #a84468;
+}
+
+.section-heading h2::after {
+    content: " ✿";
+    color: #e99bb2;
+    font-size: 22px;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 28px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #f3d1dc;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 12px 35px rgba(168,68,104,.10);
+    transition: .35s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(168,68,104,.16);
+}
+
+.card h3 {
+    color: var(--dark-rose);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.info-line {
+    padding: 9px 0;
+    border-bottom: 1px solid #f6e6eb;
+}
+
+.info-line strong {
+    color: var(--dark-rose);
+}
+
+/* INTERESTS AND FUN FACTS */
+
+.soft-section {
+    background:
+        radial-gradient(circle at 10% 15%, #ffe0e9 0, transparent 25%),
+        radial-gradient(circle at 90% 85%, #ffe5e9 0, transparent 25%),
+        linear-gradient(135deg, #fff0f5, #fff9f7);
+}
+
+.interest-grid,
+.facts-grid,
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.mini-card {
+    background: white;
+    border: 1px solid #f3d1dc;
+    border-radius: 18px;
+    padding: 23px;
+    box-shadow: 0 12px 35px rgba(168,68,104,.10);
+    transition: .35s;
+}
+
+.mini-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(168,68,104,.16);
+}
+
+.emoji {
+    font-size: 30px;
+}
+
+.mini-card h3 {
+    color: var(--dark-rose);
+    margin: 9px 0 5px;
+    font-size: 21px;
+}
+
+.mini-card p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* PROJECTS */
+
+.project-card {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card small {
+    margin-top: auto;
+    color: var(--dark-rose);
+    font-weight: bold;
+}
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+}
+
+.contact .card {
+    max-width: 720px;
+    margin: auto;
+}
+
+.tiny-flower {
+    color: var(--rose);
+    text-shadow: 0 0 12px #f4b8c8;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: var(--muted);
+    font-size: 14px;
+    background: #fff1f5;
+    border-top: 1px solid #f4dce4;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 760px) {
+    .nav-links {
+        gap: 12px;
+        font-size: 13px;
+    }
+
+    .about-grid,
+    .interest-grid,
+    .facts-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .hero::before {
+        width: 230px;
+        height: 230px;
+        right: -40px;
+        top: 12%;
+    }
+
+    .fuji {
+        width: 105vw;
+        height: 30%;
+        bottom: 15%;
+    }
+
+    .hero::after {
+        height: 28%;
+    }
+
+    .kitty-sticker {
+        width: 88px;
+        height: 82px;
+        right: 3%;
+        bottom: 5%;
+        transform: scale(.72) rotate(7deg);
+        transform-origin: bottom right;
+    }
+}
+
+@media (max-width: 440px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .falling-petal,
+    .petal {
+        animation: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+<nav class="container">
+
+    <a class="brand" href="#home">
+        🎀 MARK VINCENT TING
+    </a>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#interests">Interests</a>
+        <a href="#facts">Fun Facts</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+</nav>
+</header>
+
+<!-- HOME -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <!-- CHERRY BLOSSOMS -->
+
+    <span class="petal p1">✿</span>
+    <span class="petal p2">❀</span>
+    <span class="petal p3">✧</span>
+    <span class="petal p4">✿</span>
+
+    <!-- MOUNT FUJI -->
+
+    <div class="fuji" aria-hidden="true"></div>
+
+    <!-- FALLING PETALS -->
+
+    <span class="falling-petal petal-a">✿</span>
+    <span class="falling-petal petal-b">❀</span>
+    <span class="falling-petal petal-c">✿</span>
+    <span class="falling-petal petal-d">❀</span>
+
+    <!-- HELLO KITTY FACE -->
+
+    <div class="kitty-sticker" aria-hidden="true">
+
+        <div class="kitty-head">
+
+            <span class="kitty-eye left"></span>
+            <span class="kitty-eye right"></span>
+
+            <span class="kitty-nose"></span>
+
+            <span class="kitty-whiskers left"></span>
+            <span class="kitty-whiskers right"></span>
+
+        </div>
+
+        <div class="kitty-bow">
+            <span></span>
+        </div>
+
+    </div>
+
+    <!-- INTRODUCTION -->
+
+    <div class="container">
+
+        <div class="eyebrow">
+            Welcome girlies!
+        </div>
+
+        <h1>
+            Hi, I'm <span>Mark Vincent Ting</span>
+        </h1>
+
+        <p>
+            Im an IT Student from NU CLARK aspiring to be a professional IT.
+            I am willing to learn, build, and create.
+        </p>
+
+        <a href="#about" class="button">
+            Get to know me
+        </a>
+
+        <div style="margin-top:25px">
+
+            <span class="pill">BS Information Technology</span>
+            <span class="pill">NU Clark</span>
+            <span class="pill">Future IT Professional</span>
+
+        </div>
+
+        <div class="kitty-note">
+            ♡ made with a little sakura magic ♡
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT ME -->
+
+<section id="about">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">A little introduction</div>
+        <h2>About Me</h2>
+        <p>Every great journey starts with curiosity.</p>
+    </div>
+
+    <div class="about-grid">
+
+        <article class="card">
+
+            <h3>Hello there!</h3>
+
+            <p>
+                I'm <strong>Mark Vincent Ting</strong>, currently
+                taking up <strong>BS Information Technology at
+                National University – Clark</strong>.
+            </p>
+
+            <br>
+
+            <p>
+                I want to work and gain skills thru computer related stuff while
+                also utilizing my imagination.
+            </p>
+
+            <br>
+
+            <p>
+                This portfolio is a place to introduce myself,
+                share what I enjoy, and showcase the projects
+                and skills I develop along the way!
+            </p>
+
+        </article>
+
+        <aside class="card">
+
+            <h3>Quick Profile</h3>
+
+            <div class="info-line">
+                <strong>Name:</strong> Mark Vincent Ting
+            </div>
+
+            <div class="info-line">
+                <strong>Program:</strong> BS Information Technology
+            </div>
+
+            <div class="info-line">
+                <strong>School:</strong> National University – Clark
+            </div>
+
+            <div class="info-line">
+                <strong>Role:</strong> IT Student
+            </div>
+
+            <div class="info-line">
+                <strong>Goal:</strong> Keep learning and gain skills.
+            </div>
+
+        </aside>
+
+    </div>
+</div>
+</section>
+
+<!-- INTERESTS -->
+
+<section class="soft-section" id="interests">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">Things I enjoy</div>
+        <h2>My Interests</h2>
+        <p>A few things that make me who I am.</p>
+    </div>
+
+    <div class="interest-grid">
+
+        <article class="mini-card">
+
+            <div class="emoji">💻</div>
+
+            <h3>Technology</h3>
+
+            <p>
+                Designing softwares.
+            </p>
+
+        </article>
+
+        <article class="mini-card">
+
+            <div class="emoji">🎮</div>
+
+            <h3>Gaming</h3>
+
+            <p>
+                Enjoying games, learning from them,
+                and appreciating creative game design.
+            </p>
+
+        </article>
+
+        <article class="mini-card">
+
+            <div class="emoji">💕</div>
+
+            <h3>Cooking</h3>
+
+            <p>
+                Cooking and relaxing.
+            </p>
+
+        </article>
+
+    </div>
+</div>
+</section>
+
+<!-- FUN FACTS -->
+
+<section id="facts">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">Beyond the classroom</div>
+        <h2>About Myself</h2>
+        <p>Small details that add a little personality.</p>
+    </div>
+
+    <div class="facts-grid">
+
+        <article class="mini-card">
+
+            <div class="emoji">🎀</div>
+
+            <h3>Organized</h3>
+
+            <p>
+                I love to be organized.
+            </p>
+
+        </article>
+
+        <article class="mini-card">
+
+            <div class="emoji">💗</div>
+
+            <h3>Self-Concious</h3>
+
+            <p>
+                I always try to look presentable everyday.
+            </p>
+
+        </article>
+
+        <article class="mini-card">
+
+            <div class="emoji">🌸</div>
+
+            <h3>Calm</h3>
+
+            <p>
+                Im soft and gentle in nature.
+            </p>
+
+        </article>
+
+    </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+
+<section class="soft-section" id="projects">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">What I'm building</div>
+        <h2>My Projects</h2>
+
+        <p>
+            A collection of my school activities
+            and personal projects.
+        </p>
+
+    </div>
+
+    <div class="project-grid">
+
+        <article class="mini-card project-card">
+
+            <div class="emoji">💻</div>
+
+            <h3>Personal Portfolio</h3>
+
+            <p>
+                This is my website.
+            </p>
+
+            <small>HTML · CSS</small>
+
+        </article>
+
+        <article class="mini-card project-card">
+
+            <div class="emoji">🎀</div>
+
+            <h3>NU CLARK</h3>
+
+            <p>
+                Activities i have made.
+            </p>
+
+            <small>Your technologies here</small>
+
+        </article>
+
+        <article class="mini-card project-card">
+
+            <div class="emoji">🌷</div>
+
+            <h3>Future Project</h3>
+
+            <p>
+                There's always something new to
+                learn, build, and improve.
+            </p>
+
+            <small>More projects on the way</small>
+
+        </article>
+
+    </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+<div class="container">
+
+    <div class="section-heading">
+        <div class="eyebrow">Let's connect</div>
+        <h2>Contact Me</h2>
+        <p>Have a project idea or want to say hello?</p>
+    </div>
+
+    <div class="card">
+
+        <p>
+            I'd be happy to connect and learn
+            with other people in tech.
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Email:</strong> tingmb@students.nu-clark.edu.ph
+        </p>
+
+        <br>
+
+        <a href="mailto:tingmb@students.nu-clark.edu.ph" class="button">
+            Send me an email
+        </a>
+
+    </div>
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    Made with 🎀 and <span class="tiny-flower">✿</span>
+    by Mark Vincent Ting · ©
+    <span id="year"></span>
+
+</footer>
 
 <script>
     document.getElementById("year").textContent =
