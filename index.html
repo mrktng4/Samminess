@@ -78,6 +78,10 @@ nav {
     flex-wrap: wrap;
 }
 
+.nav-links a {
+    transition: .3s;
+}
+
 .nav-links a:hover {
     color: var(--rose);
 }
@@ -92,7 +96,14 @@ nav {
     padding: 90px 0;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #fff1f5, #fffaf8);
+    isolation: isolate;
+
+    background: linear-gradient(
+        180deg,
+        #fff0f4 0%,
+        #ffe1e8 65%,
+        #f6cbd1 100%
+    );
 }
 
 .eyebrow {
@@ -131,11 +142,13 @@ h1 span {
     border-radius: 30px;
     font-weight: bold;
     transition: .3s;
+    box-shadow: 0 7px 18px rgba(168,68,104,.2);
 }
 
 .button:hover {
     background: #913958;
     transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(168,68,104,.3);
 }
 
 .pill {
@@ -149,25 +162,217 @@ h1 span {
     font-size: 14px;
 }
 
+/* JAPANESE MOUNT FUJI LANDSCAPE */
+
+/* Pink sunset */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    width: clamp(230px, 38vw, 390px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #ffcbd2;
+    top: 8%;
+    right: 13%;
+    opacity: .9;
+}
+
+/* Mount Fuji */
+
+.fuji {
+    position: absolute;
+    z-index: -1;
+    width: min(72vw, 760px);
+    height: 44%;
+    left: 50%;
+    bottom: 18%;
+    transform: translateX(-50%);
+    background: #f3dddd;
+
+    clip-path: polygon(
+        0 100%,
+        16% 75%,
+        31% 58%,
+        43% 34%,
+        50% 20%,
+        57% 34%,
+        69% 58%,
+        84% 75%,
+        100% 100%
+    );
+
+    opacity: .98;
+}
+
+/* Snow on Mount Fuji */
+
+.fuji::after {
+    content: "";
+    position: absolute;
+    width: 27%;
+    height: 31%;
+    top: 19%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fffdfb;
+
+    clip-path: polygon(
+        0 100%,
+        18% 66%,
+        32% 75%,
+        50% 0,
+        68% 75%,
+        82% 66%,
+        100% 100%,
+        72% 82%,
+        62% 100%,
+        50% 83%,
+        38% 100%,
+        27% 82%
+    );
+}
+
+/* Layered Japanese hills */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -5%;
+    bottom: 0;
+    width: 110%;
+    height: 34%;
+
+    background:
+        radial-gradient(
+            95% 95% at 20% 100%,
+            #e7c0c1 0 58%,
+            transparent 59%
+        ),
+        radial-gradient(
+            85% 100% at 78% 100%,
+            #d9a6a8 0 58%,
+            transparent 59%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 0 38%,
+            #efd0d0 39% 66%,
+            #d9a6a8 67% 100%
+        );
+
+    clip-path: polygon(
+        0 22%,
+        18% 8%,
+        36% 16%,
+        53% 0,
+        72% 17%,
+        88% 12%,
+        100% 24%,
+        100% 100%,
+        0 100%
+    );
+
+    opacity: .88;
+}
+
+/* HERO CONTENT */
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
 /* CHERRY BLOSSOM DECORATIONS */
 
 .petal {
     position: absolute;
-    color: #e99bb2;
+    z-index: 3;
+    color: #dc7294;
     opacity: .5;
     font-size: 35px;
+    text-shadow: 0 3px 12px rgba(217,111,145,.2);
     animation: float 7s ease-in-out infinite;
 }
 
-.p1 { top: 17%; left: 8%; }
-.p2 { top: 28%; right: 11%; }
-.p3 { bottom: 15%; left: 17%; }
-.p4 { bottom: 20%; right: 15%; }
+.p1 {
+    top: 17%;
+    left: 8%;
+    font-size: 45px;
+}
+
+.p2 {
+    top: 28%;
+    right: 11%;
+    font-size: 38px;
+}
+
+.p3 {
+    bottom: 15%;
+    left: 17%;
+    font-size: 30px;
+}
+
+.p4 {
+    bottom: 20%;
+    right: 15%;
+    font-size: 48px;
+}
 
 @keyframes float {
     50% {
         transform: translateY(-18px) rotate(18deg);
     }
+}
+
+/* FALLING CHERRY BLOSSOM PETALS */
+
+@keyframes falling {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .8;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.falling-petal {
+    position: absolute;
+    top: -25px;
+    z-index: 1;
+    color: #e99bb2;
+    font-size: 23px;
+    pointer-events: none;
+    animation: falling 12s linear infinite;
+}
+
+.petal-a {
+    left: 12%;
+    animation-delay: 0s;
+}
+
+.petal-b {
+    left: 35%;
+    animation-delay: 3s;
+}
+
+.petal-c {
+    left: 65%;
+    animation-delay: 6s;
+}
+
+.petal-d {
+    left: 85%;
+    animation-delay: 2s;
 }
 
 /* GENERAL SECTIONS */
@@ -184,6 +389,14 @@ section {
 .section-heading h2 {
     font-size: 42px;
     margin: 8px 0;
+    color: #a84468;
+    letter-spacing: .5px;
+}
+
+.section-heading h2::after {
+    content: " ✿";
+    color: #e99bb2;
+    font-size: 22px;
 }
 
 .section-heading p {
@@ -196,12 +409,20 @@ section {
     gap: 28px;
 }
 
+/* ABOUT CARDS */
+
 .card {
     background: white;
-    border: 1px solid #f4dce4;
+    border: 1px solid #f3d1dc;
     border-radius: 22px;
     padding: 28px;
-    box-shadow: 0 14px 40px rgba(168,68,104,.12);
+    box-shadow: 0 12px 35px rgba(168,68,104,.10);
+    transition: all .35s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(168,68,104,.16);
 }
 
 .card h3 {
@@ -222,7 +443,18 @@ section {
 /* INTERESTS AND FUN FACTS */
 
 .soft-section {
-    background: linear-gradient(135deg, #fff0f5, #fff9f7);
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            #ffe0e9 0,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            #ffe5e9 0,
+            transparent 25%
+        ),
+        linear-gradient(135deg, #fff0f5, #fff9f7);
 }
 
 .interest-grid,
@@ -235,15 +467,16 @@ section {
 
 .mini-card {
     background: white;
-    border: 1px solid #f4dce4;
+    border: 1px solid #f3d1dc;
     border-radius: 18px;
     padding: 23px;
-    box-shadow: 0 14px 40px rgba(168,68,104,.10);
-    transition: .3s;
+    box-shadow: 0 12px 35px rgba(168,68,104,.10);
+    transition: all .35s ease;
 }
 
 .mini-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(168,68,104,.16);
 }
 
 .emoji {
@@ -288,6 +521,7 @@ section {
 
 .tiny-flower {
     color: var(--rose);
+    text-shadow: 0 0 12px #f4b8c8;
 }
 
 /* FOOTER */
@@ -297,11 +531,14 @@ footer {
     padding: 25px;
     color: var(--muted);
     font-size: 14px;
+    background: #fff1f5;
+    border-top: 1px solid #f4dce4;
 }
 
 /* RESPONSIVE DESIGN */
 
 @media (max-width: 760px) {
+
     .nav-links {
         gap: 12px;
         font-size: 13px;
@@ -317,193 +554,65 @@ footer {
     section {
         padding: 60px 0;
     }
+
+    .hero::before {
+        width: 230px;
+        right: -40px;
+        top: 12%;
+    }
+
+    .fuji {
+        width: 105vw;
+        height: 30%;
+        bottom: 15%;
+    }
+
+    .hero::after {
+        height: 28%;
+    }
 }
 
 @media (max-width: 440px) {
+
     nav {
         flex-direction: column;
         align-items: flex-start;
         padding: 14px 0;
     }
-}
-        
-/* JAPANESE CHERRY BLOSSOM LANDSCAPE */
 
-.hero {
-    isolation: isolate;
-    background: linear-gradient(
-        180deg,
-        #fff0f4 0%,
-        #ffe1e8 65%,
-        #f6cbd1 100%
-    );
-}
-
-/* Mount Fuji and sunset */
-
-.hero::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 390px;
-    height: 390px;
-    border-radius: 50%;
-    background: #ffcbd2;
-    top: 9%;
-    right: 12%;
-    opacity: .8;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 45%;
-    background: linear-gradient(
-        170deg,
-        transparent 35%,
-        #f4d6d6 36%,
-        #f4d6d6 62%,
-        #e8bfc1 63%,
-        #e8bfc1 82%,
-        #d9a6a8 83%
-    );
-    clip-path: polygon(
-        0 35%, 15% 28%, 30% 16%,
-        48% 0, 60% 12%, 78% 28%,
-        100% 40%, 100% 100%, 0 100%
-    );
-    opacity: .75;
-}
-
-/* Hero content */
-
-.hero .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* Decorative flowers */
-
-.petal {
-    z-index: 3;
-    color: #dc7294;
-    text-shadow: 0 3px 12px rgba(217,111,145,.2);
-}
-
-.p1 { font-size: 45px; }
-.p2 { font-size: 38px; }
-.p3 { font-size: 30px; }
-.p4 { font-size: 48px; }
-
-/* Elegant cards */
-
-.card,
-.mini-card {
-    border: 1px solid #f3d1dc;
-    box-shadow: 0 12px 35px rgba(168,68,104,.10);
-    transition: all .35s ease;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 45px rgba(168,68,104,.16);
-}
-
-/* Floral section backgrounds */
-
-.soft-section {
-    background:
-        radial-gradient(circle at 10% 15%, #ffe0e9 0, transparent 25%),
-        radial-gradient(circle at 90% 85%, #ffe5e9 0, transparent 25%),
-        linear-gradient(135deg, #fff0f5, #fff9f7);
-}
-
-/* Elegant headings */
-
-.section-heading h2 {
-    color: #a84468;
-    letter-spacing: .5px;
-}
-
-.section-heading h2::after {
-    content: " ✿";
-    color: #e99bb2;
-    font-size: 22px;
-}
-
-/* Buttons */
-
-.button {
-    box-shadow: 0 7px 18px rgba(168,68,104,.2);
-}
-
-.button:hover {
-    box-shadow: 0 10px 25px rgba(168,68,104,.3);
-}
-
-/* Flower decoration */
-
-.tiny-flower {
-    text-shadow: 0 0 12px #f4b8c8;
-}
-
-/* Falling petals animation */
-
-@keyframes falling {
-    0% {
-        transform: translateY(-30px) rotate(0deg);
-        opacity: 0;
+    h1 {
+        font-size: 42px;
     }
-    20% {
-        opacity: .8;
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
+
+    .section-heading h2 {
+        font-size: 34px;
     }
 }
 
-.falling-petal {
-    position: absolute;
-    top: -20px;
-    color: #e99bb2;
-    pointer-events: none;
-    animation: falling 12s linear infinite;
-}
+/* REDUCED MOTION ACCESSIBILITY */
 
-.falling-petal:nth-child(1) { left: 12%; animation-delay: 0s; }
-.falling-petal:nth-child(2) { left: 35%; animation-delay: 3s; }
-.falling-petal:nth-child(3) { left: 65%; animation-delay: 6s; }
-.falling-petal:nth-child(4) { left: 85%; animation-delay: 2s; }
+@media (prefers-reduced-motion: reduce) {
 
-/* Mobile adjustment */
-
-@media (max-width: 760px) {
-    .hero::before {
-        width: 230px;
-        height: 230px;
-        right: -40px;
-        top: 12%;
+    .falling-petal,
+    .petal {
+        animation: none;
     }
 
-    .hero::after {
-        height: 30%;
+    html {
+        scroll-behavior: auto;
     }
 }
 
-    
 </style>
 </head>
 
 <body>
 
 <!-- NAVIGATION -->
+
 <header>
 <nav class="container">
+
     <a class="brand" href="#home">
         ✿ MARK VINCENT TING
     </a>
@@ -515,19 +624,33 @@ footer {
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </div>
+
 </nav>
 </header>
 
 <!-- HOME -->
+
 <main>
 
 <section class="hero" id="home">
+
+    <!-- Original flower decorations -->
 
     <span class="petal p1">✿</span>
     <span class="petal p2">❀</span>
     <span class="petal p3">✧</span>
     <span class="petal p4">✿</span>
 
+    <!-- Mount Fuji -->
+
+    <div class="fuji" aria-hidden="true"></div>
+
+    <!-- Falling petals -->
+
+    <span class="falling-petal petal-a" aria-hidden="true">✿</span>
+    <span class="falling-petal petal-b" aria-hidden="true">❀</span>
+    <span class="falling-petal petal-c" aria-hidden="true">✿</span>
+    <span class="falling-petal petal-d" aria-hidden="true">❀</span>
 
     <div class="container">
 
@@ -555,9 +678,11 @@ footer {
         </div>
 
     </div>
+
 </section>
 
 <!-- ABOUT ME -->
+
 <section id="about">
 <div class="container">
 
@@ -570,6 +695,7 @@ footer {
     <div class="about-grid">
 
         <article class="card">
+
             <h3>Hello there!</h3>
 
             <p>
@@ -581,7 +707,7 @@ footer {
             <br>
 
             <p>
-                I want to work and gain skills thru  computer related stuff while
+                I want to work and gain skills thru computer related stuff while
                 also utilizing my imagination.
             </p>
 
@@ -592,9 +718,11 @@ footer {
                 share what I enjoy, and showcase the projects
                 and skills I develop along the way!
             </p>
+
         </article>
 
         <aside class="card">
+
             <h3>Quick Profile</h3>
 
             <div class="info-line">
@@ -616,13 +744,16 @@ footer {
             <div class="info-line">
                 <strong>Goal:</strong> Keep learning and gain skills.
             </div>
+
         </aside>
 
     </div>
+
 </div>
 </section>
 
 <!-- INTERESTS -->
+
 <section class="soft-section" id="interests">
 <div class="container">
 
@@ -635,35 +766,49 @@ footer {
     <div class="interest-grid">
 
         <article class="mini-card">
+
             <div class="emoji">💻</div>
+
             <h3>Technology</h3>
+
             <p>
-               Designing softwares.
+                Designing softwares.
             </p>
+
         </article>
 
         <article class="mini-card">
+
             <div class="emoji">🎮</div>
+
             <h3>Gaming</h3>
+
             <p>
                 Enjoying games, learning from them,
                 and appreciating creative game design.
             </p>
+
         </article>
 
         <article class="mini-card">
+
             <div class="emoji">💕</div>
+
             <h3>Cooking</h3>
+
             <p>
                 Cooking and relaxing.
             </p>
+
         </article>
 
     </div>
+
 </div>
 </section>
 
 <!-- FUN FACTS -->
+
 <section id="facts">
 <div class="container">
 
@@ -676,81 +821,114 @@ footer {
     <div class="facts-grid">
 
         <article class="mini-card">
+
             <div class="emoji"></div>
+
             <h3>Organized</h3>
+
             <p>
                 I love to be organized.
             </p>
+
         </article>
 
         <article class="mini-card">
+
             <div class="emoji"></div>
+
             <h3>Self-Concious</h3>
+
             <p>
                 I always try to look presentable everyday.
             </p>
+
         </article>
 
         <article class="mini-card">
+
             <div class="emoji"></div>
+
             <h3>Calm</h3>
+
             <p>
                 Im soft and gentle in nature.
             </p>
+
         </article>
 
     </div>
+
 </div>
 </section>
 
 <!-- PROJECTS -->
+
 <section class="soft-section" id="projects">
 <div class="container">
 
     <div class="section-heading">
         <div class="eyebrow">What I'm building</div>
         <h2>My Projects</h2>
+
         <p>
             A collection of my school activities
             and personal projects.
         </p>
+
     </div>
 
     <div class="project-grid">
 
         <article class="mini-card project-card">
+
             <div class="emoji"></div>
+
             <h3>Personal Portfolio</h3>
+
             <p>
                 This is my website.
             </p>
+
             <small>HTML · CSS</small>
+
         </article>
 
         <article class="mini-card project-card">
+
             <div class="emoji"></div>
+
             <h3>NU CLARK</h3>
+
             <p>
                 Activities i have made.
             </p>
+
             <small>Your technologies here</small>
+
         </article>
 
         <article class="mini-card project-card">
+
             <div class="emoji"></div>
+
             <h3>Future Project</h3>
+
             <p>
                 There's always something new to
                 learn, build, and improve.
             </p>
+
             <small>More projects on the way</small>
+
         </article>
 
     </div>
+
 </div>
 </section>
 
 <!-- CONTACT -->
+
 <section class="contact" id="contact">
 <div class="container">
 
@@ -780,17 +958,23 @@ footer {
         </a>
 
     </div>
+
 </div>
 </section>
 
 </main>
 
 <!-- FOOTER -->
+
 <footer>
+
     Made with <span class="tiny-flower">✿</span>
     by Mark Vincent Ting · ©
     <span id="year"></span>
+
 </footer>
+
+<!-- JAVASCRIPT -->
 
 <script>
     document.getElementById("year").textContent =
