@@ -358,6 +358,176 @@ footer {
     <span class="petal p3">✧</span>
     <span class="petal p4">✿</span>
 
+    
+/* JAPANESE CHERRY BLOSSOM LANDSCAPE */
+
+.hero {
+    isolation: isolate;
+    background: linear-gradient(
+        180deg,
+        #fff0f4 0%,
+        #ffe1e8 65%,
+        #f6cbd1 100%
+    );
+}
+
+/* Mount Fuji and sunset */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 390px;
+    height: 390px;
+    border-radius: 50%;
+    background: #ffcbd2;
+    top: 9%;
+    right: 12%;
+    opacity: .8;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45%;
+    background: linear-gradient(
+        170deg,
+        transparent 35%,
+        #f4d6d6 36%,
+        #f4d6d6 62%,
+        #e8bfc1 63%,
+        #e8bfc1 82%,
+        #d9a6a8 83%
+    );
+    clip-path: polygon(
+        0 35%, 15% 28%, 30% 16%,
+        48% 0, 60% 12%, 78% 28%,
+        100% 40%, 100% 100%, 0 100%
+    );
+    opacity: .75;
+}
+
+/* Hero content */
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Decorative flowers */
+
+.petal {
+    z-index: 3;
+    color: #dc7294;
+    text-shadow: 0 3px 12px rgba(217,111,145,.2);
+}
+
+.p1 { font-size: 45px; }
+.p2 { font-size: 38px; }
+.p3 { font-size: 30px; }
+.p4 { font-size: 48px; }
+
+/* Elegant cards */
+
+.card,
+.mini-card {
+    border: 1px solid #f3d1dc;
+    box-shadow: 0 12px 35px rgba(168,68,104,.10);
+    transition: all .35s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(168,68,104,.16);
+}
+
+/* Floral section backgrounds */
+
+.soft-section {
+    background:
+        radial-gradient(circle at 10% 15%, #ffe0e9 0, transparent 25%),
+        radial-gradient(circle at 90% 85%, #ffe5e9 0, transparent 25%),
+        linear-gradient(135deg, #fff0f5, #fff9f7);
+}
+
+/* Elegant headings */
+
+.section-heading h2 {
+    color: #a84468;
+    letter-spacing: .5px;
+}
+
+.section-heading h2::after {
+    content: " ✿";
+    color: #e99bb2;
+    font-size: 22px;
+}
+
+/* Buttons */
+
+.button {
+    box-shadow: 0 7px 18px rgba(168,68,104,.2);
+}
+
+.button:hover {
+    box-shadow: 0 10px 25px rgba(168,68,104,.3);
+}
+
+/* Flower decoration */
+
+.tiny-flower {
+    text-shadow: 0 0 12px #f4b8c8;
+}
+
+/* Falling petals animation */
+
+@keyframes falling {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: .8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.falling-petal {
+    position: absolute;
+    top: -20px;
+    color: #e99bb2;
+    pointer-events: none;
+    animation: falling 12s linear infinite;
+}
+
+.falling-petal:nth-child(1) { left: 12%; animation-delay: 0s; }
+.falling-petal:nth-child(2) { left: 35%; animation-delay: 3s; }
+.falling-petal:nth-child(3) { left: 65%; animation-delay: 6s; }
+.falling-petal:nth-child(4) { left: 85%; animation-delay: 2s; }
+
+/* Mobile adjustment */
+
+@media (max-width: 760px) {
+    .hero::before {
+        width: 230px;
+        height: 230px;
+        right: -40px;
+        top: 12%;
+    }
+
+    .hero::after {
+        height: 30%;
+    }
+}
+
+    
     <div class="container">
 
         <div class="eyebrow">
